@@ -1,0 +1,219 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #fdfcfb;
+    color: #333c4a;
+    line-height: 1.6;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Navigation */
+nav {
+    background-color: #2b2d42;
+    color: #fff;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 999;
+}
+
+.logo {
+    font-weight: 700;
+    font-size: 1.5rem;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+}
+
+.nav-links a {
+    color: #fff;
+    font-weight: 500;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+/* Underline on hover */
+.nav-links a::after {
+    content: "";
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    background-color: #ff7f50;
+    bottom: -4px;
+    left: 0;
+    transition: width 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: #ff7f50;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+/* Hero Section */
+.hero {
+    text-align: center;
+    padding: 4rem 2rem;
+    background: #ffe6db;
+}
+
+.profile-pic {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-bottom: 1rem;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.hero h1 span {
+    color: #ff7f50;
+}
+
+.btn {
+    display: inline-block;
+    padding: 0.7rem 1.5rem;
+    margin-top: 1rem;
+    background-color: #ff7f50;
+    color: #fff;
+    border-radius: 5px;
+    transition: background 0.3s;
+}
+
+.btn:hover {
+    background-color: #e65c2f;
+}
+
+/* Sections */
+section {
+    padding: 4rem 2rem;
+    max-width: 900px;
+    margin: auto;
+}
+
+h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: #444;
+}
+
+/* Fade-in Animation */
+.fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeIn 0.8s ease-out forwards;
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Projects */
+.project-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.project-card {
+    background-color: #ffffff;
+    padding: 1rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+    text-align: center;
+    border: 1px solid rgba(0,0,0,0.05);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.project-card:hover {
+    transform: scale(1.03);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.project-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card img:hover {
+    transform: scale(1.02);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.project-card h3 {
+    margin: 1rem 0 0.5rem;
+    color: #333c4a;
+}
+
+/* Contact */
+.contact p {
+    margin: 0.5rem 0;
+    font-size: 1rem;
+    color: #444;
+}
+
+.contact a {
+    display: inline-block;
+    margin-top: 1rem;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 2rem;
+    background: #2b2d42;
+    color: #fff;
+    margin-top: 3rem;
+    font-size: 0.95rem;
+}
+
+/* Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Responsive Navigation */
+@media (max-width: 768px) {
+    .nav-links {
+        flex-direction: column;
+        background: #2b2d42;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        right: 0;
+        display: none;
+    }
+
+    nav:hover .nav-links {
+        display: flex;
+    }
+}

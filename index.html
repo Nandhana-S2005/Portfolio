@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Nandhana's Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="index.css" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background-color: #f9f9f9;
+      animation: fadeIn 1.5s ease;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    nav {
+      background-color: #222;
+      color: #fff;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 999;
+    }
+
+    .logo {
+      font-weight: 700;
+      font-size: 1.5rem;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    .nav-links a {
+      color: #fff;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      color: #ff7f50;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 4rem 2rem;
+      background: linear-gradient(to right, #fff 50%, #ffe4dc 100%);
+    }
+
+    .profile-pic {
+      width: 150px;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 50%;
+      margin-bottom: 1rem;
+    }
+
+    .hero h1 span {
+      color: #ff7f50;
+    }
+
+    .typing {
+      width: 22ch;
+      white-space: nowrap;
+      overflow: hidden;
+      border-right: 2px solid #ff7f50;
+      animation: typing 2s steps(22), blink 0.75s step-end infinite;
+      margin: 0 auto;
+    }
+
+    @keyframes typing {
+      from { width: 0 }
+      to { width: 22ch }
+    }
+
+    @keyframes blink {
+      50% { border-color: transparent; }
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 0.7rem 1.5rem;
+      margin-top: 1rem;
+      background: linear-gradient(45deg, #ff7f50, #ff9966);
+      color: #fff;
+      border-radius: 5px;
+      background-size: 200% 200%;
+      animation: gradientMove 3s ease infinite;
+      transition: transform 0.3s ease;
+    }
+
+    .btn:hover {
+      transform: scale(1.05);
+    }
+
+    @keyframes gradientMove {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    section {
+      padding: 4rem 2rem;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      color: #444;
+      text-align: center;
+    }
+
+    .project-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+    }
+
+    .project-card {
+      background: rgba(255, 255, 255, 0.8);
+      backdrop-filter: blur(6px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      box-shadow: 8px 8px 16px rgba(0,0,0,0.05), -4px -4px 10px rgba(255,255,255,0.6);
+      border-radius: 10px;
+      text-align: center;
+      transition: transform 0.3s ease;
+      width: 280px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 1rem;
+    }
+
+    .project-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .project-card img {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+      border-radius: 8px;
+      margin-bottom: 1rem;
+      transition: transform 0.3s ease;
+    }
+
+    .project-card img:hover {
+      transform: scale(1.05);
+    }
+
+    .project-card h3 {
+      margin: 1rem 0 0.5rem;
+    }
+
+    .contact p {
+      margin: 0.5rem 0;
+      text-align: center;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      background: #222;
+      color: #fff;
+      margin-top: 3rem;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* Hamburger Menu Styles */
+    .hamburger {
+      display: none;
+      font-size: 2rem;
+      color: #fff;
+      cursor: pointer;
+    }
+
+    #menu-toggle {
+      display: none;
+    }
+
+    @media (max-width: 768px) {
+      .hamburger {
+        display: block;
+      }
+
+      .nav-links {
+        flex-direction: column;
+        background: #222;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        right: 0;
+        display: none;
+        text-align: center;
+        padding: 1rem 0;
+      }
+
+      #menu-toggle:checked + .hamburger + .nav-links {
+        display: flex;
+      }
+    }
+
+    /* Floating Resume Button */
+    .resume-float {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: linear-gradient(45deg, #ff7f50, #ff9966);
+      color: white;
+      padding: 12px 16px;
+      font-size: 1.2rem;
+      border-radius: 50%;
+      text-align: center;
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      z-index: 9999;
+      text-decoration: none;
+    }
+
+    .resume-float:hover {
+      transform: scale(1.1);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav>
+    <div class="logo">Nandhana.S</div>
+    <input type="checkbox" id="menu-toggle" />
+    <label for="menu-toggle" class="hamburger">&#9776;</label>
+    <ul class="nav-links">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero Section -->
+  <section id="home" class="hero">
+    <img src="web developer girl2.png" alt="Profile Picture" class="profile-pic" />
+    <div class="hero-content">
+      <h1>Hi, I'm <span>Nandhana S</span></h1>
+      <p class="typing">Web Developer & Designer</p>
+      <a href="#projects" class="btn">View Projects</a>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="about">
+    <h2>About Me</h2>
+    <p style="text-align: center;">I’m a passionate web developer focusing on front-end development and clean UI/UX design. I love turning creative ideas into responsive, interactive websites.</p>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects" class="projects">
+    <h2>Projects</h2>
+    <div class="project-container">
+      <!-- To-Do List App -->
+      <div class="project-card">
+        <img src="TODO image.png" alt="Screenshot of To-Do List App" />
+        <h3>To-Do List App</h3>
+        <p>A simple and elegant task manager built using HTML and CSS.</p>
+        <a href="https://github.com/Nandhana-S2005/To-do-list-app" target="_blank" class="btn">GitHub</a>
+        <a href="https://nandhana-s2005.github.io/To-do-list-app" target="_blank" class="btn">Live Demo</a>
+      </div>
+
+      <!-- Product Page -->
+      <div class="project-card">
+        <img src="shoe2.png" alt="Screenshot of Product Page" />
+        <h3>Product Landing Page</h3>
+        <p>A responsive product page with clean design, built using HTML and CSS.</p>
+        <a href="https://github.com/Nandhana-S2005/Product-Page" target="_blank" class="btn">GitHub</a>
+        <a href="https://nandhana-s2005.github.io/Product-Page/" target="_blank" class="btn">Live Demo</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="contact">
+    <h2>Contact Me</h2>
+    <p>Email: <a href="mailto:nandhanas222@gmail.com">nandhanas222@gmail.com</a></p>
+    <p>GitHub: <a href="https://github.com/Nandhana-S2005" target="_blank">github.com/Nandhana-S2005</a></p>
+    <div style="text-align: center;">
+      <a href="https://www.linkedin.com/in/nandhana-s-a02ab1334" target="_blank" class="btn">Connect on LinkedIn</a>
+    </div>
+  </section>
+  <!-- Floating Resume Button -->
+  <a href="📄 Nandhana S.pdf" download class="resume-float" title="Download Resume">📄</a>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Nandhana S | All Rights Reserved</p>
+  </footer>
+
+</body>
+</html>
+
